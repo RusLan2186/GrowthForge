@@ -1,0 +1,65 @@
+@use "./base/_variables" as *;
+@use "./base/_mixins" as *;
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #120060 0%, #290693 100%);
+
+  &__track {
+    display: flex;
+    gap: 10px;
+    width: max-content;
+    animation: marquee-roll 32s linear infinite;
+    will-change: transform;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+
+    @include media($md) {
+      gap: 14px;
+      animation-duration: 26s;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: default;
+
+    @include media($md) {
+      padding: 10px 0;
+    }
+
+    &-ico {
+      width: 5.3px;
+      height: 5.9px;
+      background-color: $white-color;
+      border-radius: 50%;
+    }
+
+    &-text {
+      font-size: 21.2px;
+      line-height: 33px;
+      font-weight: 900;
+      color: $white-color;
+    }
+  }
+}
+
+@keyframes marquee-roll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}

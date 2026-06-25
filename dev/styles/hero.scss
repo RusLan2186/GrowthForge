@@ -1,0 +1,91 @@
+@use "./base/_variables" as *;
+@use "./base/_mixins" as *;
+
+.hero {
+  padding-top: 48px;
+
+  @include media($lg) {
+    padding-top: 41px;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 50px;
+    justify-content: space-between;
+    margin-bottom: 63px;
+
+    @include media($lg) {
+      padding: 0 24px;
+    }
+
+    @include media($md) {
+      flex-direction: column-reverse;
+      align-items: center;
+      row-gap: 40px;
+      margin-bottom: 14px;
+    }
+  }
+
+  &__announce {
+    margin-bottom: 109px;
+
+    @include media($lg) {
+      margin-bottom: 31px;
+    }
+    p {
+      font-size: 15px;
+      line-height: 30px;
+      color: $white-color;
+      font-weight: 700;
+
+      @include media($md) {
+        font-size: 11.5px;
+        line-height: 23px;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 44px;
+    @include media($md) {
+      width: 96%;
+      margin-bottom: 31px;
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__text-block {
+    display: flex;
+    flex-direction: column;
+    row-gap: 17px;
+    max-width: 320px;
+
+    @include media($md) {
+      row-gap: 15px;
+    }
+    p {
+      font-weight: 600;
+      color: $white-color;
+      font-size: 15px;
+      line-height: 27px;
+
+      @include media($md) {
+        font-size: 13.65px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  &__image-block {
+    @include media($md) {
+      width: 71%;
+      margin: 0 auto;
+    }
+    img {
+      width: 100%;
+    }
+  }
+}

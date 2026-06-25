@@ -1,0 +1,35 @@
+@use "sass:math";
+
+@mixin adaptive(
+  $property,
+  $max-size,
+  $min-size,
+  $max-width: 1920,
+  $min-width: 320
+) {
+  $max-value: strip-unit($max-size);
+  $min-value: strip-unit($min-size);
+
+  #{$property}: #{$max-size};
+
+  @media (max-width: #{$max-width}px) {
+    #{$property}: calc(
+      #{$min-size} + #{$max-value - $min-value} *
+        ((100vw - #{$min-width}px) / #{$max-width - $min-width})
+    );
+  }
+
+  @media (max-width: #{$min-width}px) {
+    #{$property}: #{$min-size};
+  }
+}
+
+@function strip-unit($value) {
+  @return math.div($value, ($value * 0 + 1));
+}
+
+@mixin media($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}

@@ -1,0 +1,120 @@
+@use "./base/_variables" as *;
+@use "./base/_mixins" as *;
+
+.faq {
+  &__title {
+    @include adaptive(margin-bottom, 45px, 15px);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    @include adaptive(row-gap, 45px, 23px);
+  }
+
+  &__item {
+    border-bottom: 1px solid white;
+    overflow: hidden;
+    padding-bottom: 18px;
+    &:first-child {
+      border-top: 1px solid white;
+      @include adaptive(padding-top, 45px, 13px);
+    }
+
+    &--active {
+      .faq__icon {
+        color: $blue-color;
+        &::after {
+          opacity: 0;
+          transform: translateX(-50%) rotate(90deg);
+        }
+      }
+
+      .faq__answer {
+        grid-template-rows: 1fr;
+        opacity: 1;
+      }
+    }
+
+    &:hover {
+      .faq__question {
+        background: $blue-gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+  }
+
+  &__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    @include adaptive(column-gap, 30px, 15px);
+    font-weight: 700;
+    @include adaptive(font-size, 22px, 17px);
+    line-height: 1.36;
+    background: $silver-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 5px;
+    transition: 0.9s all ease;
+    text-align: left;
+  }
+
+  &__icon {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
+    margin-right: 15px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: $silver-gradient;
+      transform: translateY(-50%);
+      transition: opacity 0.3s ease;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 1px;
+      height: 100%;
+      background: $silver-gradient;
+      transform: translateX(-50%);
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+    }
+  }
+
+  &__answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+      grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      padding 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    p {
+      overflow: hidden;
+      @include adaptive(font-size, 22px, 17px);
+      color: $white-color;
+      font-weight: 400;
+      line-height: 1.36;
+    }
+  }
+}

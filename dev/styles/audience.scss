@@ -1,0 +1,109 @@
+@use "./base/_variables" as *;
+@use "./base/_mixins" as *;
+
+.audience {
+  &__inner {
+    display: flex;
+    column-gap: 27px;
+
+    @include media($lg) {
+      flex-direction: column;
+      row-gap: 20px;
+    }
+  }
+
+  &__card {
+    border-radius: 21px;
+    padding: 24px 33px 47px 33px;
+    background-image: url(/images/decor/card-bg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 50px;
+    background: $silver-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 30px;
+
+    @include media($lg) {
+      line-height: 36px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+
+    @include media($lg) {
+      row-gap: 20px;
+    }
+
+    li {
+      font-weight: 600;
+      font-size: 17px;
+      line-height: 29px;
+      color: $light-sage-color;
+      display: flex;
+      align-items: center;
+      column-gap: 18px;
+
+      @include media($lg) {
+        font-size: 18px;
+        line-height: 21px;
+        column-gap: 13px;
+      }
+
+      &:before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        background: $silver-gradient;
+        border-radius: 3000px;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    row-gap: 38px;
+
+    @include media($lg) {
+      row-gap: 20px;
+    }
+  }
+
+  &__program {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    column-gap: 20px;
+
+    .audience__title {
+      margin-bottom: 0;
+    }
+
+    img {
+      transition: 0.3s top ease;
+      width: 32px;
+      height: 32px;
+
+      @include media($sm) {
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+    &:hover img {
+      position: relative;
+      top: 5px;
+    }
+  }
+}

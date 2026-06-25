@@ -1,0 +1,27 @@
+# Node modules
+node_modules/
+
+# Production build
+src/
+
+# Vite local cache
+.vite/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Generated CSS / JS output
+src/css/
+src/js/

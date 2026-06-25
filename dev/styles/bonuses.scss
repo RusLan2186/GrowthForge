@@ -1,0 +1,146 @@
+@use "./base/_variables" as *;
+@use "./base/_mixins" as *;
+
+.bonuses {
+  overflow: hidden;
+  &__title-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px 24px;
+    flex-wrap: wrap;
+    margin-bottom: 72px;
+
+    @include media($md) {
+      margin-bottom: 26px;
+    }
+  }
+
+  &__title-block {
+    position: relative;
+  }
+
+  &__decor {
+    position: absolute;
+    top: -95px;
+    left: 8%;
+    z-index: -1;
+
+    @include media($lg) {
+      left: 0%;
+      top: -100px;
+    }
+
+    img {
+      width: 137px;
+      height: 233px;
+
+      @include media($md) {
+        width: 100px;
+        height: 200px;
+      }
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    @include adaptive(column-gap, 124px, 20px);
+    @include adaptive(font-size, 68px, 23px);
+    line-height: 1.23;
+    font-weight: 700;
+    background: $blue-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &__link {
+    max-width: 285px;
+    color: $light-sage-color;
+    transition: 0.3s color ease;
+
+    @include media($lg) {
+      max-width: fit-content;
+    }
+
+    &:hover {
+      color: $blue-color;
+    }
+  }
+
+  &__ico {
+    width: 53px;
+    height: 53px;
+
+    @include media($md) {
+      width: 37px;
+      height: 37px;
+    }
+
+    @include media($xs) {
+      display: none;
+    }
+  }
+
+  &__link-text {
+    text-align: right;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 26px;
+
+    @include media($md) {
+      font-size: 16px;
+      line-height: 21px;
+      text-align: left;
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    @include adaptive(column-gap, 59px, 15px);
+    row-gap: 25px;
+
+    @include media($sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.bonus-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 21px;
+  padding: 20px 11px 97px 18px;
+  background-image: url(/images/decor/card-bg.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include media($md) {
+    padding: 13px 11px 45px 27px;
+  }
+  &__icon {
+    width: 87px;
+    height: 87px;
+    @include adaptive(margin-bottom, 39px, 10px);
+  }
+
+  &__title {
+    font-size: 24px;
+    line-height: 37px;
+    font-weight: 600;
+    background: $silver-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    @include adaptive(margin-bottom, 20px, 10px);
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 25px;
+    color: $light-green-color;
+  }
+}
