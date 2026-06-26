@@ -11,7 +11,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-around;
-    gap: 57px;
+    gap: 20px;
     position: relative;
 
     @media (max-width: 899.98px) {
@@ -54,15 +54,34 @@
   }
 
   &__icon {
-    width: 70px;
-    height: 83px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 119px;
+    height: 119px;
+    border-radius: 1878.95px;
+    border: 1px solid rgba(#2d1fbf, 0.3);
 
     @include media($xs) {
-      width: 40px;
-      height: 53px;
+      width: 85px;
+      height: 85px;
     }
-    @media (max-width: 339.98px) {
+
+    @media (max-width: 349.98px) {
       display: none;
+    }
+    img {
+      width: 70px;
+      height: 83px;
+
+      @include media($xs) {
+        width: 40px;
+        height: 53px;
+      }
+      @media (max-width: 349.98px) {
+        display: none;
+      }
     }
   }
 
@@ -72,10 +91,14 @@
       display: flex;
       column-gap: 28px;
     }
+
+    @include media($sm) {
+      column-gap: 10px;
+    }
   }
 
   &__form-block {
-    max-width: 400px;
+    max-width: 450px;
 
     @media (max-width: 899.98px) {
       max-width: 100%;
@@ -85,7 +108,7 @@
   &__form-header {
     display: flex;
     align-items: center;
-    column-gap: 12px;
+    column-gap: 10px;
     margin-bottom: 50px;
 
     @media (max-width: 899.98px) {
@@ -102,10 +125,20 @@
   }
 
   &__form-icon {
-    width: 113px;
-    height: 133px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    border: 1px solid rgba(#2d1fbf, 0.3);
     @media (max-width: 899.98px) {
       display: none;
+    }
+    img {
+      width: 113px;
+      height: 133px;
     }
   }
 

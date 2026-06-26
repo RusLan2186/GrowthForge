@@ -78,22 +78,31 @@
     @include media($lg) {
       row-gap: 20px;
     }
+
+    .audience__card:last-child {
+      padding-bottom: 24px;
+    }
   }
 
   &__program {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    column-gap: 20px;
+    column-gap: 9px;
 
     .audience__title {
       margin-bottom: 0;
+      @include media($sm) {
+        font-size: 23px;
+      }
     }
 
     img {
       transition: 0.3s top ease;
       width: 32px;
       height: 32px;
+      position: relative;
+      top: 10px;
 
       @include media($sm) {
         width: 25px;
@@ -103,7 +112,7 @@
 
     &:hover img {
       position: relative;
-      top: 5px;
+      top: 14px;
     }
   }
 }
