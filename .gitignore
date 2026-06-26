@@ -1,8 +1,6 @@
 # Node modules
 node_modules/
 
-# Production build
-src/
 
 # Vite local cache
 .vite/
