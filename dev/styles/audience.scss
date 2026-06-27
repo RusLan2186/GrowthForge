@@ -110,9 +110,11 @@
       }
     }
 
-    &:hover img {
-      position: relative;
-      top: 14px;
+    @include hover {
+      &:hover img {
+        position: relative;
+        top: 14px;
+      }
     }
   }
 }

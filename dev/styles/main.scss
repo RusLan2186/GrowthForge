@@ -76,6 +76,10 @@ body {
   max-width: $container;
   margin: 0 auto;
   padding: 0 24px;
+
+  @include media($md) {
+    padding: 0 17.5px;
+  }
 }
 
 .section--mb {
@@ -108,9 +112,11 @@ body {
   -webkit-text-fill-color: transparent;
   transition: 0.3s all ease;
 
-  &:hover {
-    background: $blue-gradient;
-    -webkit-background-clip: text;
+  @include hover {
+    &:hover {
+      background: $blue-gradient;
+      -webkit-background-clip: text;
+    }
   }
 }
 

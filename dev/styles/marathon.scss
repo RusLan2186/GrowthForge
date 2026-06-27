@@ -2,33 +2,44 @@
 @use "./base/_mixins" as *;
 
 .marathon {
+  overflow: hidden;
+
   &__inner {
+    position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 0 20px;
 
-    @include media($md) {
+
+    @media (max-width: 799.98px) {
       flex-direction: column;
       align-items: flex-start;
+      min-height: 0;
     }
   }
 
   &__content {
     position: relative;
-    padding-top: 50px;
+    z-index: 5;
+    width: 54%;
+    padding-top: 165px;
+    @include media($lg){
+        padding-top: 100px;
+    }
 
-    @include media($md) {
+    @media (max-width: 799.98px) {
+      width: 100%;
       padding-top: 0px;
     }
   }
 
   &__decor {
     position: absolute;
-    top: -50px;
+    top: 60px;
     left: 40px;
 
-    @include media($md) {
+    @media (max-width: 799.98px) {
       top: -30px;
       left: 0px;
     }
@@ -74,79 +85,157 @@
   }
 
   &__visual {
-    position: relative;
-    width: 40%;
-    padding-bottom: 48%;
+    position: absolute;
+    top: -95px;
+    right: -105px;
+    width: 820px;
+    height: 1030px;
     overflow: hidden;
+    pointer-events: none;
 
     @include media($lg) {
-      padding-bottom: 55%;
+      top: -40px;
+      right: -170px;
+      width: 760px;
+      height: 940px;
     }
 
-    @include media($md) {
-      padding-bottom: 80%;
-      width: 100%;
+    @media (max-width: 799.98px) {
+      position: relative;
+      top: auto;
+      right: auto;
+      left: 50%;
+      width: 100vw;
+      height: 860px;
+      margin-top: -85px;
+      transform: translateX(-50%);
     }
 
     @include media($sm) {
-      padding-bottom: 120%;
+      height: clamp(650px, 170vw, 760px);
     }
 
     &:before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0px;
-      width: 100%;
-      height: 100%;
-      background-image: url("/images/decor/photo__overlay-1.webp");
+      z-index: 1;
+      top: 70px;
+      right: 95px;
+      bottom: 70px;
+      left: -260px;
+      background-image: url("/images/decor/photo__overlay.webp");
       background-repeat: no-repeat;
-      background-size: cover;
-      border-radius: 411px;
-      transform: matrix(1, -0.06, 0.07, 1, 0, 0);
-      opacity: 0.9;
+      background-position: center top;
+      background-size: 100% 100%;
+      opacity: 0.96;
+
+      @media (max-width: 799.98px) {
+        top: 25px;
+        right: auto;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
 
     &:after {
       content: "";
       position: absolute;
+      z-index: 4;
       top: 0;
-      left: 0px;
+      left: 0;
       width: 100%;
       height: 100%;
-      background-image: url("/images/decor/photo__overlay.webp");
-      background-repeat: no-repeat;
-      background-size: cover;
-      border-radius: 444.794px;
-      transform: matrix(1, -0.06, 0.07, 1, 0, 0);
-      background: radial-gradient(
-        69.45% 69.45% at 50% 50%,
-        rgba(0, 0, 0, 0) 41.35%,
-        #000000 70.67%
-      );
+      background:
+        radial-gradient(
+          94% 58% at 74% 46%,
+          rgba(0, 0, 0, 0) 42%,
+          rgba(0, 0, 0, 0.66) 76%,
+          #000000 100%
+        ),
+        linear-gradient(
+          90deg,
+          #000000 0%,
+          rgba(0, 0, 0, 0.82) 8%,
+          rgba(0, 0, 0, 0) 26%
+        ),
+        linear-gradient(
+          270deg,
+          #000000 0%,
+          rgba(0, 0, 0, 0.9) 8%,
+          rgba(0, 0, 0, 0) 24%
+        ),
+        linear-gradient(180deg, rgba(0, 0, 0, 0) 78%, #000000 100%);
+      pointer-events: none;
 
-      transform: scale(1.3);
+      @media (max-width: 799.98px) {
+        left: -10%;
+        width: 120%;
+        background:
+          radial-gradient(
+            76% 56% at 54% 44%,
+            rgba(0, 0, 0, 0) 42%,
+            rgba(0, 0, 0, 0.62) 79%,
+            #000000 100%
+          ),
+          linear-gradient(
+            90deg,
+            #000000 0%,
+            rgba(0, 0, 0, 0.42) 5%,
+            rgba(0, 0, 0, 0) 16%
+          ),
+          linear-gradient(
+            270deg,
+            #000000 0%,
+            rgba(0, 0, 0, 0.42) 5%,
+            rgba(0, 0, 0, 0) 16%
+          ),
+          linear-gradient(180deg, rgba(0, 0, 0, 0) 78%, #000000 100%);
+      }
     }
   }
 
   &__image {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: -20px;
-    left: 0;
-    object-fit: cover;
-    object-position: right top;
-    z-index: 10;
+    z-index: 3;
+    top: 165px;
+    right: 125px;
+    width: 560px;
+    height: auto;
+    max-width: none;
+    object-fit: contain;
+    object-position: center bottom;
 
     @include media($lg) {
-      top: 0px;
-      object-fit: contain;
-      object-position: top;
+      top: 175px;
+      right: 110px;
+      width: 500px;
+    }
+
+    @media (max-width: 799.98px) {
+      top: 145px;
+      right: 50%;
+      width: min(520px, 92vw);
+      transform: translateX(52%);
     }
 
     @include media($sm) {
-      object-fit: cover;
+      top: 155px;
+    }
+  }
+
+  @media (max-width: 799.98px) {
+    &__visual {
+      &:before {
+        width: min(900px, 150vw);
+      }
+    }
+  }
+
+  @include media($xs) {
+    &__image {
+      top: 160px;
+      width: 108vw;
     }
   }
 }

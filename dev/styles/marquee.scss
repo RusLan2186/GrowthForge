@@ -13,8 +13,10 @@
     animation: marquee-roll 32s linear infinite;
     will-change: transform;
 
-    &:hover {
-      animation-play-state: paused;
+    @include hover {
+      &:hover {
+        animation-play-state: paused;
+      }
     }
 
     @include media($md) {

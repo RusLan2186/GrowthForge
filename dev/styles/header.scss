@@ -139,8 +139,10 @@
       text-transform: capitalize;
       transition: 0.3s color ease;
 
-      &:hover {
-        color: $blue-color;
+      @include hover {
+        &:hover {
+          color: $blue-color;
+        }
       }
     }
   }

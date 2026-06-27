@@ -36,12 +36,14 @@
       }
     }
 
-    &:hover {
-      .faq__question {
-        background: $blue-gradient;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+    @include hover {
+      &:hover {
+        .faq__question {
+          background: $blue-gradient;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
       }
     }
   }

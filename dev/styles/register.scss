@@ -171,8 +171,10 @@
     color: $light-sage-color;
     transition: 0.3s all ease;
 
-    &:hover {
-      background: linear-gradient(90deg, #120060 0%, #290693 70%);
+    @include hover {
+      &:hover {
+        background: linear-gradient(90deg, #120060 0%, #290693 70%);
+      }
     }
   }
 
