@@ -85,33 +85,19 @@
 
   &__visual {
     position: absolute;
-    top: -16px;
+    top: -42px;
     right: -150px;
-    width: 880px;
-    height: 905px;
+    width: 980px;
+    height: 1000px;
     overflow: visible;
     pointer-events: none;
 
     @include media($lg) {
-      top: 0;
-      right: -150px;
-      width: 790px;
-      height: 812px;
+      top: 10px;
+      right: -105px;
+      width: 680px;
+      height: 735px;
     }
-
-    // @media (max-width: 799.98px) {
-    //   position: relative;
-    //   top: auto;
-    //   right: 0;
-    //   left: 0%;
-    //   width: 100%;
-    //   height: auto;
-    //   padding-bottom: 96%;
-    // }
-
-    // @include media($sm) {
-    //   padding-bottom: 99%;
-    // }
 
     @media (max-width: 799.98px) {
       position: relative;
@@ -129,6 +115,22 @@
     }
 
     &:before {
+      @media (min-width: 800px) {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        top: 45px;
+        right: 0;
+        bottom: 35px;
+        left: 70px;
+        background: radial-gradient(
+          82% 60% at 66% 38%,
+          rgba(24, 27, 104, 0.82) 0%,
+          rgba(17, 20, 70, 0.64) 40%,
+          rgba(0, 0, 0, 0) 78%
+        );
+      }
+
       @media (max-width: 799.98px) {
         content: "";
         position: absolute;
@@ -161,38 +163,30 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 78%, #000000 100%);
+      background:
+        radial-gradient(
+          80% 54% at 66% 43%,
+          rgba(0, 0, 0, 0) 39%,
+          rgba(0, 0, 0, 0.28) 64%,
+          rgba(0, 0, 0, 0.82) 91%,
+          #000000 100%
+        ),
+        linear-gradient(
+          90deg,
+          #000000 0%,
+          rgba(0, 0, 0, 0.95) 11%,
+          rgba(0, 0, 0, 0.45) 31%,
+          rgba(0, 0, 0, 0) 50%
+        ),
+        linear-gradient(
+          270deg,
+          #000000 0%,
+          rgba(0, 0, 0, 0.78) 9%,
+          rgba(0, 0, 0, 0.18) 24%,
+          rgba(0, 0, 0, 0) 42%
+        ),
+        linear-gradient(180deg, rgba(0, 0, 0, 0) 70%, #000000 100%);
       pointer-events: none;
-      @media (max-width: 799.98px) {
-        content: "";
-        position: absolute;
-        z-index: 4;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background:
-          radial-gradient(
-            94% 58% at 74% 46%,
-            rgba(0, 0, 0, 0) 42%,
-            rgba(0, 0, 0, 0.66) 76%,
-            #000000 100%
-          ),
-          linear-gradient(
-            90deg,
-            #000000 0%,
-            rgba(0, 0, 0, 0.82) 8%,
-            rgba(0, 0, 0, 0) 26%
-          ),
-          linear-gradient(
-            270deg,
-            #000000 0%,
-            rgba(0, 0, 0, 0.9) 8%,
-            rgba(0, 0, 0, 0) 24%
-          ),
-          linear-gradient(180deg, rgba(0, 0, 0, 0) 78%, #000000 100%);
-        pointer-events: none;
-      }
 
       @media (max-width: 799.98px) {
         left: -10%;
@@ -224,19 +218,19 @@
   &__image--desc {
     position: absolute;
     z-index: 1;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
+    top: 24px;
+    right: 24px;
+    width: 90%;
+    height: 90%;
     max-width: none;
     object-fit: fill;
     object-position: center bottom;
 
     @include media($lg) {
-      top: 50px;
-      right: 0;
-      width: 100%;
-      height: 100%;
+      top: 54px;
+      right: 42px;
+      width: 85%;
+      height: 87%;
     }
 
     @media (max-width: 799.98px) {
