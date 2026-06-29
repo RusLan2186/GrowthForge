@@ -2,7 +2,7 @@
 @use "./base/_mixins" as *;
 
 .hero {
-  padding-top: 48px;
+  padding-top: 32px;
 
   @include media($lg) {
     padding-top: 41px;
