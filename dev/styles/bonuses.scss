@@ -21,7 +21,8 @@
     display: flex;
     align-items: center;
     position: relative;
-    @include adaptive(column-gap, 80px, 20px);
+    @include adaptive(column-gap, 80px, 15px);
+
   }
 
   &__decor {
@@ -61,7 +62,8 @@
   }
 
   &__text {
-    max-width: 210px;
+    display: flex;
+
     color: $light-sage-color;
     text-align: right;
     transition: 0.3s color ease;
@@ -74,8 +76,19 @@
   &__ico {
     width: 53px;
     height: 53px;
+  }
+
+  &__ico--desc {
+    @include media($md) {
+      display: none;
+    }
+  }
+
+  &__ico--mob {
+    display: none;
 
     @include media($md) {
+      display: block;
       width: 37px;
       height: 37px;
     }
@@ -90,11 +103,13 @@
     font-size: 19px;
     font-weight: 600;
     line-height: 26px;
+    max-width: 220px;
 
     @include media($md) {
       font-size: 16px;
       line-height: 21px;
       text-align: left;
+      max-width: fit-content;
     }
   }
 
